@@ -1,0 +1,20 @@
+---
+authors:
+  - {{ .Author }}
+recommended_by: 
+tags:
+  - books
+{{- if not .LastHighlightDt.IsZero }}
+date: {{ .LastHighlightDt.Format "2006-01-02" }}
+{{- end }}
+my_rating:
+---
+
+## Highlights
+{{ if .Highlights }}
+{{- range .Highlights }}
+- {{ .Text }}
+{{- end }}
+{{- else }}
+No highlights available.
+{{- end }}
