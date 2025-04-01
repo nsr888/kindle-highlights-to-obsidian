@@ -13,7 +13,13 @@ import (
 func main() {
 	inputFile := flag.String("input", "My Clippings.txt", "Path to My Clippings.txt")
 	outputDir := flag.String("output", "./highlights", "Output directory")
+	help := flag.Bool("help", false, "Show help")
 	flag.Parse()
+
+	if *help {
+		flag.PrintDefaults()
+		return
+	}
 
 	if _, err := os.Stat(*inputFile); os.IsNotExist(err) {
 		fmt.Println("Input file does not exist")
