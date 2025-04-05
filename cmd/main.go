@@ -11,10 +11,16 @@ import (
 )
 
 func main() {
-	inputFile := flag.String("input", "My Clippings.txt", "Path to My Clippings.txt")
+	inputFile := flag.String("input", "", "Path to My Clippings.txt")
 	outputDir := flag.String("output", "./highlights", "Output directory")
 	help := flag.Bool("help", false, "Show help")
 	flag.Parse()
+
+	if *inputFile == "" {
+		fmt.Println("Input file is required")
+		flag.PrintDefaults()
+		return
+	}
 
 	if *help {
 		flag.PrintDefaults()
