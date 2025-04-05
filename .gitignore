@@ -1,0 +1,5 @@
+# Added by goreleaser init:
+dist/
+highlights/
+.tool-versions
+My Clippings.txt
